@@ -12,7 +12,7 @@ ENV PATH="/home/user/.local/bin:$PATH"
 WORKDIR /app
 
 # Copy the requirements file from `api/` and install dependencies
-COPY --chown=user api/requirements.txt .
+COPY --chown=user api/requirement.txt .
 RUN pip install --no-cache-dir --upgrade -r requirement.txt
 
 # Copy the full project after installing dependencies
