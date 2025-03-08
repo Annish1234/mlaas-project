@@ -19,7 +19,7 @@ app = FastAPI()
 model = joblib.load("model/model.pkl")
 print("Classes:", model.classes_)
 
-# ✅ Define Request Body Schema using Pydantic
+#  new comment from github
 class InputData(BaseModel):
     features: list[float]  # Ensures 'features' is a required list of floats
 
