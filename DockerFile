@@ -1,0 +1,25 @@
+# Use Python 3.9 as the base image
+FROM python:3.9-slim
+
+# Create a user to avoid running as root
+RUN useradd -m -u 1000 user
+USER user
+
+# Set the PATH environment variable
+ENV PATH="/home/user/.local/bin:$PATH"
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy and install dependencies first (this speeds up builds)
+COPY --chown=user requirements.txt .
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+# Copy the entire project after installing dependencies
+COPY --chown=user . .
+
+# Expose the port for Uvicorn
+EXPOSE 7860
+
+# Run the application using Uvicorn
+CMD ["uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "7860"]
