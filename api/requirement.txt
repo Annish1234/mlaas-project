@@ -4,3 +4,5 @@ pytest
 pydantic
 joblib
 numpy
+scikit-learn
+mlflow
