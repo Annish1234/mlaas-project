@@ -9,11 +9,12 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout Repo (Full Clone)
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 
+          fetch-depth: 0  # Fix shallow clone issue
 
+          
       - name: Set Up Python
         uses: actions/setup-python@v4
         with:
