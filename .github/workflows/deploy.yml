@@ -24,7 +24,8 @@ jobs:
         run: pip install -r api/requirement.txt
 
       - name: Run Tests
-        run: pytest tests/ || echo "No tests found, skipping..."
+        run: pytest tests/test.py
+        # || echo "No tests found, skipping..."
 
   deploy:
     needs: build-and-test
