@@ -22,6 +22,7 @@ print("Classes:", model.classes_)
 #  new comment from github 2
 class InputData(BaseModel):
     features: list[float]  # Ensures 'features' is a required list of floats
+    #changes
 
 @app.post("/predict/")
 def predict(data: InputData):
