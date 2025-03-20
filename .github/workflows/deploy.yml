@@ -25,7 +25,7 @@ jobs:
 
       - name: Run Tests
         run: pytest tests/test.py
-        # || echo "No tests found, skipping..."
+        # || echo "No tests found"
 
   deploy:
     needs: build-and-test
